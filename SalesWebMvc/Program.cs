@@ -11,7 +11,28 @@ builder.Services.AddDbContext<SalesWebMvcContext>(options =>
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<SeedingService>();
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<SalesWebMvcContext>();
+    context.Database.Migrate();
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var env = services.GetRequiredService<IWebHostEnvironment>();
+
+    if (env.IsDevelopment())
+    {
+        var seedingService = services.GetRequiredService<SeedingService>();
+        seedingService.Seed();
+    }
+}
 
 if (!app.Environment.IsDevelopment())
 {

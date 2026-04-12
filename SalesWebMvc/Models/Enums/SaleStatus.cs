@@ -2,6 +2,6 @@
 {
     public enum SaleStatus : int
     {
-        PENDING,BILLED,CANCELED
+        Pending,Billed,Canceled
     }
 }
