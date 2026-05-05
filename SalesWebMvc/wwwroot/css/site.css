@@ -20,3 +20,22 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.custom-navbar {
+    background-color: #ff4e00;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+    .custom-navbar .nav-link.active {
+        font-weight: bold;
+        border-bottom: 2px solid white;
+    }
+    .custom-navbar .nav-link,
+    .custom-navbar .navbar-brand {
+        color: white;
+    }
+
+    .custom-navbar .nav-link:hover {
+        color: #fff;
+        opacity: 0.8;
+    }
