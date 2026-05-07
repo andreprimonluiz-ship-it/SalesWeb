@@ -152,6 +152,6 @@ namespace SalesWebMvc.Controllers
         private bool DepartmentExists(int id)
         {
             return _context.Department.Any(e => e.Id == id);
-        }
+        }   
     }
 }
